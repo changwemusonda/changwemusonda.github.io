@@ -10,13 +10,16 @@
 <style>
   :root { --fg:#0a0a0a; --muted:#666; --bg:#fff; --card:#f7f7f8; --accent:#0f62fe; }
   *{box-sizing:border-box} html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
   body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--fg);background:var(--bg);line-height:1.5}
   .container{max-width:1000px;margin:0 auto;padding:24px}
-  /* Top bar */
+
+  /* Top bar (sticky) */
   .topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid #eee}
   .topnav{display:flex;gap:12px;flex-wrap:wrap;padding:10px 0}
   .chip{padding:8px 12px;border:1px solid #ddd;border-radius:999px;text-decoration:none;color:var(--fg);font-weight:600;font-size:14px}
   .chip:hover{border-color:var(--accent);color:var(--accent)}
+
   /* Hero */
   header{padding:28px 0 8px}
   header h1{font-size:36px;line-height:1.1;margin:0 0 6px}
@@ -25,11 +28,12 @@
   .icons img{width:28px;height:28px;display:block}
   .hero-wrap{display:grid;grid-template-columns:1fr 180px;gap:24px;align-items:center}
   .avatar{width:180px;height:180px;border-radius:16px;object-fit:cover;border:1px solid #eee}
+
   /* Projects */
   section{padding:28px 0}
   section h2{font-size:22px;letter-spacing:.04em;color:#222;margin:0 0 14px;text-transform:uppercase}
   .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-  .card{background:var(--card);border:1px solid #eee;border-radius:12px;padding:14px}
+  .card{background:var(--card);border:1px solid #eee;border-radius:12px;padding:14px;scroll-margin-top:78px;}
   .card h3{margin:0 0 6px;font-size:18px}
   .card p{margin:0 0 8px}
   .meta{font-size:12px;color:var(--muted)}
@@ -40,11 +44,17 @@
 </style>
 </head>
 <body>
-  <!-- Top bar with single jump -->
+  <!-- Top bar with buttons to each project card -->
   <div class="topbar">
     <div class="container">
       <nav class="topnav">
-        <a class="chip" href="#projects">Projects</a>
+        <!-- Rename the labels and targets to match each card's id -->
+        <a class="chip" href="#p1">Project 1</a>
+        <a class="chip" href="#p2">Project 2</a>
+        <a class="chip" href="#p3">Project 3</a>
+        <a class="chip" href="#p4">Project 4</a>
+        <a class="chip" href="#p5">Project 5</a>
+        <!-- Add/remove chips as needed -->
       </nav>
     </div>
   </div>
@@ -56,11 +66,11 @@
         <h1>Your Name</h1>
         <p>Brief intro: what you build and what roles you’re targeting.</p>
         <div class="icons">
-          <!-- Replace images with your uploads in /assets/ -->
-          <a href="https://www.linkedin.com/in/yourhandle" target="_blank"><img alt="LinkedIn" src="/assets/linkedin.png"></a>
-          <a href="https://github.com/ACCOUNT_A" target="_blank"><img alt="GitHub A" src="/assets/github.png"></a>
-          <a href="https://github.com/ACCOUNT_B" target="_blank"><img alt="GitHub B" src="/assets/github.png"></a>
-          <a href="mailto:you@email.com" target="_blank"><img alt="Email" src="/assets/mail.png"></a>
+          <!-- Replace with your own icons in /assets or inline SVGs -->
+          <a href="https://www.linkedin.com/in/yourhandle" target="_blank" title="LinkedIn"><img alt="LinkedIn" src="/assets/linkedin.svg"></a>
+          <a href="https://github.com/ACCOUNT_A" target="_blank" title="GitHub A"><img alt="GitHub" src="/assets/github.svg"></a>
+          <a href="https://github.com/ACCOUNT_B" target="_blank" title="GitHub B"><img alt="GitHub" src="/assets/github.svg"></a>
+          <a href="mailto:you@email.com" title="Email"><img alt="Email" src="/assets/mail.svg"></a>
         </div>
       </div>
       <img class="avatar" src="/assets/your-photo.jpg" alt="Your portrait">
@@ -70,8 +80,8 @@
     <section id="projects">
       <h2>Projects</h2>
       <div class="grid">
-        <!-- Card 1 -->
-        <article class="card">
+        <!-- Project Card 1 -->
+        <article class="card" id="p1">
           <h3>&lt;Insert Project Name&gt;</h3>
           <p>One-liner about the problem → solution → your impact.</p>
           <div class="meta">Tech: &lt;Stack&gt;</div>
@@ -79,8 +89,8 @@
           <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
         </article>
 
-        <!-- Card 2 -->
-        <article class="card">
+        <!-- Project Card 2 -->
+        <article class="card" id="p2">
           <h3>&lt;Insert Project Name&gt;</h3>
           <p>What you shipped, how it works, measurable results.</p>
           <div class="meta">Tech: &lt;Stack&gt;</div>
@@ -88,8 +98,8 @@
           <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
         </article>
 
-        <!-- Card 3 -->
-        <article class="card">
+        <!-- Project Card 3 -->
+        <article class="card" id="p3">
           <h3>&lt;Insert Project Name&gt;</h3>
           <p>Key features, your role, and why it matters.</p>
           <div class="meta">Tech: &lt;Stack&gt;</div>
@@ -97,8 +107,8 @@
           <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
         </article>
 
-        <!-- Card 4 -->
-        <article class="card">
+        <!-- Project Card 4 -->
+        <article class="card" id="p4">
           <h3>&lt;Insert Project Name&gt;</h3>
           <p>Architecture or algorithm summary; constraints and trade-offs.</p>
           <div class="meta">Tech: &lt;Stack&gt;</div>
@@ -106,8 +116,8 @@
           <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
         </article>
 
-        <!-- Card 5 -->
-        <article class="card">
+        <!-- Project Card 5 -->
+        <article class="card" id="p5">
           <h3>&lt;Insert Project Name&gt;</h3>
           <p>Performance numbers or outcomes (FPS, latency, accuracy, speedup).</p>
           <div class="meta">Tech: &lt;Stack&gt;</div>
@@ -115,7 +125,7 @@
           <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
         </article>
 
-        <!-- Add more cards as needed: copy/paste an <article class="card"> -->
+        <!-- Copy/paste more cards and add matching nav chips -->
       </div>
     </section>
 
