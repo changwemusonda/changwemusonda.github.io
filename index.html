@@ -12,7 +12,7 @@
   *{box-sizing:border-box} html,body{margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--fg);background:var(--bg);line-height:1.5}
-  .container{max-width:1000px;margin:0 auto;padding:24px}
+  .container{max-width:980px;margin:0 auto;padding:24px}
 
   /* Top bar (sticky) */
   .topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid #eee}
@@ -31,30 +31,50 @@
 
   /* Projects */
   section{padding:28px 0}
-  section h2{font-size:22px;letter-spacing:.04em;color:#222;margin:0 0 14px;text-transform:uppercase}
-  .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-  .card{background:var(--card);border:1px solid #eee;border-radius:12px;padding:14px;scroll-margin-top:78px;}
-  .card h3{margin:0 0 6px;font-size:18px}
-  .card p{margin:0 0 8px}
-  .meta{font-size:12px;color:var(--muted)}
-  a.btn{display:inline-block;margin-top:6px;padding:8px 10px;border-radius:8px;border:1px solid #ddd;text-decoration:none;font-weight:600}
+  section h2{font-size:22px;letter-spacing:.04em;color:#222;margin:0 0 18px;text-transform:uppercase}
+
+  /* Vertical stack of projects */
+  .projects-list{display:flex;flex-direction:column;gap:40px}
+
+  /* Each project block */
+  .project{scroll-margin-top:84px}     /* offsets sticky top bar when jumping */
+  .desc-box{
+    background:#fff;
+    border:1px solid #e6e6e6;
+    border-radius:12px;
+    padding:14px 16px;
+    margin:0 0 10px;
+    box-shadow:0 0 0/0 rgba(0,0,0,0);
+  }
+  .desc-box h3{margin:0 0 6px;font-size:18px}
+  .desc-box p{margin:0;color:#444}
+
+  .card{
+    background:var(--card);
+    border:1px solid #eee;
+    border-radius:12px;
+    padding:16px;
+  }
+  .card h4{margin:0 0 8px;font-size:18px}
+  .card p{margin:0 0 10px}
+  .meta{font-size:12px;color:var(--muted);margin-top:2px}
+  a.btn{display:inline-block;margin-top:6px;margin-right:8px;padding:8px 10px;border-radius:8px;border:1px solid #ddd;text-decoration:none;font-weight:600}
   a.btn:hover{border-color:var(--accent);color:var(--accent)}
+
   footer{padding:24px 0;color:var(--muted);font-size:14px}
   @media (max-width:700px){ .hero-wrap{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
-  <!-- Top bar with buttons to each project card -->
+  <!-- Top nav with buttons to each project -->
   <div class="topbar">
     <div class="container">
       <nav class="topnav">
-        <!-- Rename the labels and targets to match each card's id -->
         <a class="chip" href="#p1">Project 1</a>
         <a class="chip" href="#p2">Project 2</a>
         <a class="chip" href="#p3">Project 3</a>
         <a class="chip" href="#p4">Project 4</a>
         <a class="chip" href="#p5">Project 5</a>
-        <!-- Add/remove chips as needed -->
       </nav>
     </div>
   </div>
@@ -76,56 +96,87 @@
       <img class="avatar" src="/assets/your-photo.jpg" alt="Your portrait">
     </header>
 
-    <!-- One big Projects section -->
+    <!-- Projects (single heading) -->
     <section id="projects">
       <h2>Projects</h2>
-      <div class="grid">
-        <!-- Project Card 1 -->
-        <article class="card" id="p1">
-          <h3>&lt;Insert Project Name&gt;</h3>
-          <p>One-liner about the problem → solution → your impact.</p>
-          <div class="meta">Tech: &lt;Stack&gt;</div>
-          <a class="btn" href="https://github.com/ACCOUNT_X/REPO_X" target="_blank">Repo</a>
-          <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
-        </article>
 
-        <!-- Project Card 2 -->
-        <article class="card" id="p2">
-          <h3>&lt;Insert Project Name&gt;</h3>
-          <p>What you shipped, how it works, measurable results.</p>
-          <div class="meta">Tech: &lt;Stack&gt;</div>
-          <a class="btn" href="https://github.com/ACCOUNT_Y/REPO_Y" target="_blank">Repo</a>
-          <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
-        </article>
+      <div class="projects-list">
+        <!-- Project 1 -->
+        <div class="project" id="p1">
+          <div class="desc-box">
+            <h3>&lt;Insert Project Name&gt;</h3>
+            <p>Short overview: problem → solution → your role/impact (1–3 sentences).</p>
+          </div>
+          <article class="card">
+            <h4>Highlights</h4>
+            <p>Key features, architecture, or results (FPS, latency, accuracy, speedup).</p>
+            <div class="meta">Tech: &lt;Stack&gt;</div>
+            <a class="btn" href="https://github.com/ACCOUNT_X/REPO_X" target="_blank">Repo</a>
+            <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
+          </article>
+        </div>
 
-        <!-- Project Card 3 -->
-        <article class="card" id="p3">
-          <h3>&lt;Insert Project Name&gt;</h3>
-          <p>Key features, your role, and why it matters.</p>
-          <div class="meta">Tech: &lt;Stack&gt;</div>
-          <a class="btn" href="https://github.com/ACCOUNT_Z/REPO_Z" target="_blank">Repo</a>
-          <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
-        </article>
+        <!-- Project 2 -->
+        <div class="project" id="p2">
+          <div class="desc-box">
+            <h3>&lt;Insert Project Name&gt;</h3>
+            <p>What you shipped, how it works, and measurable outcome.</p>
+          </div>
+          <article class="card">
+            <h4>Highlights</h4>
+            <p>Bulleted wins or a concise paragraph about the approach.</p>
+            <div class="meta">Tech: &lt;Stack&gt;</div>
+            <a class="btn" href="https://github.com/ACCOUNT_Y/REPO_Y" target="_blank">Repo</a>
+            <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
+          </article>
+        </div>
 
-        <!-- Project Card 4 -->
-        <article class="card" id="p4">
-          <h3>&lt;Insert Project Name&gt;</h3>
-          <p>Architecture or algorithm summary; constraints and trade-offs.</p>
-          <div class="meta">Tech: &lt;Stack&gt;</div>
-          <a class="btn" href="https://github.com/ACCOUNT_A/REPO_A" target="_blank">Repo</a>
-          <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
-        </article>
+        <!-- Project 3 -->
+        <div class="project" id="p3">
+          <div class="desc-box">
+            <h3>&lt;Insert Project Name&gt;</h3>
+            <p>Context, constraints, and why it matters.</p>
+          </div>
+          <article class="card">
+            <h4>Highlights</h4>
+            <p>Architecture summary; trade-offs; what you optimized.</p>
+            <div class="meta">Tech: &lt;Stack&gt;</div>
+            <a class="btn" href="https://github.com/ACCOUNT_Z/REPO_Z" target="_blank">Repo</a>
+            <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
+          </article>
+        </div>
 
-        <!-- Project Card 5 -->
-        <article class="card" id="p5">
-          <h3>&lt;Insert Project Name&gt;</h3>
-          <p>Performance numbers or outcomes (FPS, latency, accuracy, speedup).</p>
-          <div class="meta">Tech: &lt;Stack&gt;</div>
-          <a class="btn" href="https://github.com/ACCOUNT_B/REPO_B" target="_blank">Repo</a>
-          <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
-        </article>
+        <!-- Project 4 -->
+        <div class="project" id="p4">
+          <div class="desc-box">
+            <h3>&lt;Insert Project Name&gt;</h3>
+            <p>Main contributions and results on real hardware.</p>
+          </div>
+          <article class="card">
+            <h4>Highlights</h4>
+            <p>Benchmarks, diagrams, or core algorithm notes.</p>
+            <div class="meta">Tech: &lt;Stack&gt;</div>
+            <a class="btn" href="https://github.com/ACCOUNT_A/REPO_A" target="_blank">Repo</a>
+            <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
+          </article>
+        </div>
 
-        <!-- Copy/paste more cards and add matching nav chips -->
+        <!-- Project 5 -->
+        <div class="project" id="p5">
+          <div class="desc-box">
+            <h3>&lt;Insert Project Name&gt;</h3>
+            <p>Impact summary: who benefits, what changed, what’s next.</p>
+          </div>
+          <article class="card">
+            <h4>Highlights</h4>
+            <p>Notable techniques, libraries, and performance.</p>
+            <div class="meta">Tech: &lt;Stack&gt;</div>
+            <a class="btn" href="https://github.com/ACCOUNT_B/REPO_B" target="_blank">Repo</a>
+            <a class="btn" href="https://demo-or-video.link" target="_blank">Demo</a>
+          </article>
+        </div>
+
+        <!-- Add more .project blocks and corresponding top chips as needed -->
       </div>
     </section>
 
