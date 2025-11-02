@@ -24,8 +24,26 @@
   header{padding:28px 0 8px}
   header h1{font-size:36px;line-height:1.1;margin:0 0 6px}
   header p{margin:0 0 12px;color:var(--muted)}
-  .icons{display:flex;gap:12px;align-items:center;margin-top:8px}
-  .icons img{width:28px;height:28px;display:block}
+  /* Center the row, add space between icons */
+  .icons {
+    display: flex;
+    justify-content: center;   /* centers the whole row */
+    align-items: center;
+    gap: 24px;                  /* space between icons (try 32px if you want more) */
+    margin-top: 12px;           /* space above the row */
+  }
+
+  /* Control the icon size */
+  .icons img {
+    width: 40px;                /* increase size (try 44–48px if you want larger) */
+    height: 40px;
+    display: block;
+  }
+
+  /* Optional: extra click padding + subtle hover */
+  .icons a { padding: 4px; border-radius: 8px; }
+  .icons a:hover { transform: translateY(-1px); }
+
   .hero-wrap{display:grid;grid-template-columns:1fr 180px;gap:24px;align-items:center}
   .avatar{width:180px;height:180px;border-radius:16px;object-fit:cover;border:1px solid #eee}
 
