@@ -22,39 +22,34 @@
 
   /* Hero */
   header{padding:28px 0 8px}
-  header h1{font-size:36px;line-height:1.1;margin:0 0 6px}
-  header p{margin:0 0 12px;color:var(--muted)}
+  header h1{font-size:36px;line-height:1.1;margin:0 0 6px;text-align:center}
+  header p{margin:0 0 12px;color:var(--muted);text-align:center}
 
-  /* Centered icon row with labels */
-  .icons{
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    gap:28px;
-    margin-top:12px;
-  }
-  .icon{
+  /* Centered vertical hero stack */
+  .hero-wrap{
     display:flex;
     flex-direction:column;
     align-items:center;
-    text-decoration:none;
-    color:inherit;
+    gap:12px;
   }
-  .icon img{
-    width:60px;
-    height:60px;
-    display:block;
-  }
-  .icon .label{
-    margin-top:6px;
-    font-size:13px;
-    color:#555;
-  }
-  .icon:hover img{ transform:translateY(-1px); }
-  .icon:hover .label{ color:#0f62fe; }
 
-  .hero-wrap{display:grid;grid-template-columns:1fr 180px;gap:24px;align-items:center}
-  .avatar{width:180px;height:180px;border-radius:16px;object-fit:cover;border:1px solid #eee}
+  /* Portrait centered above icons */
+  .avatar{
+    width:180px;height:180px;border-radius:16px;object-fit:cover;border:1px solid #eee;
+    display:block;margin:8px auto 0;
+  }
+
+  /* Centered icon row with labels */
+  .icons{
+    display:flex;justify-content:center;align-items:flex-start;gap:28px;margin-top:12px;
+  }
+  .icon{
+    display:flex;flex-direction:column;align-items:center;text-decoration:none;color:inherit;
+  }
+  .icon img{width:60px;height:60px;display:block}
+  .icon .label{margin-top:6px;font-size:13px;color:#555}
+  .icon:hover img{transform:translateY(-1px)}
+  .icon:hover .label{color:#0f62fe}
 
   /* Projects */
   section{padding:28px 0}
@@ -66,12 +61,7 @@
   /* Each project block */
   .project{scroll-margin-top:84px}
   .desc-box{
-    background:#fff;
-    border:1px solid #e6e6e6;
-    border-radius:12px;
-    padding:14px 16px;
-    margin:0 0 10px;
-    box-shadow:0 0 0/0 rgba(0,0,0,0);
+    background:#fff;border:1px solid #e6e6e6;border-radius:12px;padding:14px 16px;margin:0 0 10px;
   }
   .desc-box p{margin:0;color:#444}
 
@@ -88,10 +78,7 @@
 
   /* Card under the desc-box */
   .card{
-    background:var(--card);
-    border:1px solid #eee;
-    border-radius:12px;
-    padding:16px;
+    background:var(--card);border:1px solid #eee;border-radius:12px;padding:16px;
   }
   .card h4{margin:0 0 8px;font-size:18px}
   .card p{margin:0 0 10px}
@@ -105,8 +92,7 @@
   .sponsor-logo{height:16px;filter:grayscale(1);opacity:.85}
   .sponsor-logo:hover{opacity:1;filter:none}
 
-  footer{padding:24px 0;color:var(--muted);font-size:14px}
-  @media (max-width:700px){ .hero-wrap{grid-template-columns:1fr} }
+  footer{padding:24px 0;color:var(--muted);font-size:14px;text-align:center}
 </style>
 </head>
 <body>
@@ -114,9 +100,9 @@
   <div class="topbar">
     <div class="container">
       <nav class="topnav">
-        <a class="chip" href="#p-pegasus">Pegasus GoAERO</a>
-        <a class="chip" href="#p2">Project 2</a>
-        <a class="chip" href="#p3">Project 3</a>
+        <a class="chip" href="#p-pegasus">UAV Autonomy</a>
+        <a class="chip" href="#p2">CV: Polyp Seg</a>
+        <a class="chip" href="#p3">FPGA Path Planning</a>
         <a class="chip" href="#p4">Project 4</a>
         <a class="chip" href="#p5">Project 5</a>
       </nav>
@@ -126,29 +112,31 @@
   <div class="container">
     <!-- Hero -->
     <header class="hero-wrap" id="top">
-      <div>
-        <h1>Changwe Musonda</h1>
-        <p>Brief intro: what you build and what roles you’re targeting.</p>
-        <div class="icons">
-          <a class="icon" href="https://www.linkedin.com/in/changwe-musonda-32642a1a8/" target="_blank" rel="noopener">
-            <img src="/assets/linkedin.png" alt="LinkedIn">
-            <span class="label">LinkedIn</span>
-          </a>
-          <a class="icon" href="https://github.com/changwemusonda" target="_blank" rel="noopener">
-            <img src="/assets/github.png" alt="GitHub">
-            <span class="label">Personal GitHub</span>
-          </a>
-          <a class="icon" href="https://github.com/cbmusonda" target="_blank" rel="noopener">
-            <img src="/assets/github.png" alt="GitHub">
-            <span class="label">School GitHub</span>
-          </a>
-          <a class="icon" href="mailto:bradley.musonda@gmail.com">
-            <img src="/assets/mail.png" alt="Email">
-            <span class="label">Email</span>
-          </a>
-        </div>
-      </div>
+      <h1>Changwe Musonda</h1>
+      <p>Brief intro: what you build and what roles you’re targeting.</p>
+
+      <!-- Portrait centered -->
       <img class="avatar" src="/assets/your-photo.jpg" alt="Portrait of Changwe Musonda">
+
+      <!-- Icons centered below portrait -->
+      <div class="icons">
+        <a class="icon" href="https://www.linkedin.com/in/changwe-musonda-32642a1a8/" target="_blank" rel="noopener">
+          <img src="/assets/linkedin.png" alt="LinkedIn">
+          <span class="label">LinkedIn</span>
+        </a>
+        <a class="icon" href="https://github.com/changwemusonda" target="_blank" rel="noopener">
+          <img src="/assets/github.png" alt="GitHub">
+          <span class="label">Personal GitHub</span>
+        </a>
+        <a class="icon" href="https://github.com/cbmusonda" target="_blank" rel="noopener">
+          <img src="/assets/github.png" alt="GitHub">
+          <span class="label">School GitHub</span>
+        </a>
+        <a class="icon" href="mailto:bradley.musonda@gmail.com">
+          <img src="/assets/mail.png" alt="Email">
+          <span class="label">Email</span>
+        </a>
+      </div>
     </header>
 
     <!-- Projects (single heading) -->
@@ -156,7 +144,7 @@
       <h2>Projects</h2>
 
       <div class="projects-list">
-        <!-- Pegasus GoAERO -->
+        <!-- UAV Autonomy -->
         <div class="project" id="p-pegasus">
           <div class="desc-box">
             <h3 class="project-title">
@@ -184,7 +172,7 @@
           </article>
         </div>
 
-        <!-- Computer Vision Project -->
+        <!-- CV: Polyp Seg -->
         <div class="project" id="p2">
           <div class="desc-box">
             <h3 class="project-title">Computer Vision Techniques for Accurate Polyp Segmentation</h3>
@@ -199,7 +187,7 @@
           </article>
         </div>
 
-        <!-- FPGA Project -->
+        <!-- FPGA Path Planning -->
         <div class="project" id="p3">
           <div class="desc-box">
             <h3 class="project-title">FPGA A* Path Planning on Nexys A7-100T</h3>
