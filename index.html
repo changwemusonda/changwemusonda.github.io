@@ -3,44 +3,169 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Your Name | Projects</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+<title>Your Name – Portfolio</title>
+<meta name="description" content="Selected projects and case studies." />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-  .grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-  header{margin:2rem 0 1rem}
-  footer{margin:3rem 0 2rem;font-size:.9rem;opacity:.8}
+  :root { --fg:#0a0a0a; --muted:#666; --bg:#fff; --card:#f7f7f8; --accent:#0f62fe; }
+  *{box-sizing:border-box} html,body{margin:0;padding:0}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--fg);background:var(--bg);line-height:1.5}
+  .container{max-width:1000px;margin:0 auto;padding:24px}
+  /* Top jump menu */
+  .topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid #eee}
+  .topnav{display:flex;gap:12px;flex-wrap:wrap;padding:10px 0}
+  .chip{padding:8px 12px;border:1px solid #ddd;border-radius:999px;text-decoration:none;color:var(--fg);font-weight:600;font-size:14px}
+  .chip:hover{border-color:var(--accent);color:var(--accent)}
+  /* Hero */
+  header{padding:28px 0 8px}
+  header h1{font-size:36px;line-height:1.1;margin:0 0 6px}
+  header p{margin:0 0 12px;color:var(--muted)}
+  .icons{display:flex;gap:12px;align-items:center;margin-top:8px}
+  .icons img{width:28px;height:28px;display:block}
+  .hero-wrap{display:grid;grid-template-columns:1fr 180px;gap:24px;align-items:center}
+  .avatar{width:180px;height:180px;border-radius:16px;object-fit:cover;border:1px solid #eee}
+  /* Sections */
+  section{padding:28px 0}
+  section h2{font-size:20px;letter-spacing:.04em;color:#222;margin:0 0 12px;text-transform:uppercase}
+  .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .card{background:var(--card);border:1px solid #eee;border-radius:12px;padding:14px}
+  .card h3{margin:0 0 6px;font-size:18px}
+  .card p{margin:0 0 8px}
+  .meta{font-size:12px;color:var(--muted)}
+  a.btn{display:inline-block;margin-top:6px;padding:8px 10px;border-radius:8px;border:1px solid #ddd;text-decoration:none;font-weight:600}
+  a.btn:hover{border-color:var(--accent);color:var(--accent)}
+  footer{padding:24px 0;color:var(--muted);font-size:14px}
+  @media (max-width:700px){ .hero-wrap{grid-template-columns:1fr} }
 </style>
 </head>
-<body class="container">
-  <header>
-    <h1>Changwe Musonda</h1>
-    <p>Autonomy & embedded systems — UAVs (ROS 2 / PX4), FPGA, perception.</p>
-    <nav>
-      <a href="mailto:bradley.musonda@gmail.com">Email</a> ·
-      <a href="https://www.linkedin.com/in/changwe-musonda-32642a1a8/" target="_blank">LinkedIn</a> ·
-      <a href="https://github.com/changwemusonda" target="_blank">GitHub</a>
-    </nav>
-  </header>
-
-  <h2>Featured Projects</h2>
-  <div class="grid">
-    <!-- Curate your best 6—edit titles, text, and links -->
-    <article>
-      <h3><a href="https://github.com/ACCOUNT_A/pegasus-uav" target="_blank">Pegasus UAV Autonomy</a></h3>
-      <p>ROS 2 ↔ PX4 bridge (XRCE-DDS), path planning & avoidance on Jetson Orin.</p>
-      <small>ROS 2 · PX4 · LiDAR · Stereo</small>
-    </article>
-    <article>
-      <h3><a href="https://github.com/ACCOUNT_B/a-star-fpga" target="_blank">A* Path Planning on FPGA</a></h3>
-      <p>Verilog accelerator on Nexys A7-100T vs Python baseline; deterministic latencies.</p>
-      <small>Verilog · Vivado · Python</small>
-    </article>
+<body>
+  <!-- Top jump menu -->
+  <div class="topbar">
+    <div class="container">
+      <nav class="topnav">
+        <a class="chip" href="#live">Live Websites</a>
+        <a class="chip" href="#algorithms">Algorithms</a>
+        <a class="chip" href="#database">Database</a>
+        <a class="chip" href="#datasci">Data Science</a>
+        <a class="chip" href="#android">Android</a>
+        <a class="chip" href="#web">Web</a>
+      </nav>
+    </div>
   </div>
 
-  <h2>About</h2>
-  <p>Short bio: what you build, why it matters, and the tech you love.</p>
+  <div class="container">
+    <!-- Hero -->
+    <header class="hero-wrap" id="top">
+      <div>
+        <h1>Your Name</h1>
+        <p>Brief intro: what you build and what roles you’re targeting.</p>
+        <div class="icons">
+          <a href="https://www.linkedin.com/in/yourhandle" target="_blank"><img alt="LinkedIn" src="/assets/linkedin.png"></a>
+          <a href="https://github.com/ACCOUNT_A" target="_blank"><img alt="GitHub A" src="/assets/github.png"></a>
+          <a href="https://github.com/ACCOUNT_B" target="_blank"><img alt="GitHub B" src="/assets/github.png"></a>
+          <a href="mailto:you@email.com" target="_blank"><img alt="Email" src="/assets/mail.png"></a>
+        </div>
+      </div>
+      <img class="avatar" src="/assets/your-photo.jpg" alt="Your portrait">
+    </header>
 
-  <footer>© <span id="y"></span> Your Name</footer>
-<script>document.getElementById("y").textContent=new Date().getFullYear();</script>
+    <!-- Live Websites -->
+    <section id="live">
+      <h2>Live Websites</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Frontline Medics</h3>
+          <p>Short description of what you built, your role, and impact.</p>
+          <div class="meta">HTML · CSS · WordPress</div>
+          <a class="btn" href="https://example.org" target="_blank">Visit</a>
+        </article>
+        <article class="card">
+          <h3>Smiles for Seniors</h3>
+          <p>What you shipped and why it matters.</p>
+          <div class="meta">HTML · CSS</div>
+          <a class="btn" href="https://example.org" target="_blank">Visit</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Algorithms -->
+    <section id="algorithms">
+      <h2>Algorithms</h2>
+      <div class="grid">
+        <article class="card">
+          <h3><a href="https://github.com/ACCOUNT_B/a-star-fpga" target="_blank">A* Path Planning on FPGA</a></h3>
+          <p>Hardware accelerator vs Python baseline; deterministic latencies.</p>
+          <div class="meta">Verilog · Vivado · Python</div>
+          <a class="btn" href="https://github.com/ACCOUNT_B/a-star-fpga" target="_blank">Repo</a>
+          <a class="btn" href="https://youtu.be/..." target="_blank">Demo</a>
+        </article>
+        <article class="card">
+          <h3><a href="https://github.com/ACCOUNT_A/pegasus-uav" target="_blank">UAV Path Planning & Avoidance</a></h3>
+          <p>ROS 2 ↔ PX4 with LiDAR/stereo; planning + reactive avoidance.</p>
+          <div class="meta">ROS 2 · PX4 · C++/Python</div>
+          <a class="btn" href="https://github.com/ACCOUNT_A/pegasus-uav" target="_blank">Repo</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Database -->
+    <section id="database">
+      <h2>Database</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Pharmacy DB (Course Project)</h3>
+          <p>ER model → Spring Boot backend; queries & reports.</p>
+          <div class="meta">MySQL · Spring Boot · Java</div>
+          <a class="btn" href="https://github.com/ACCOUNT_A/pharmacy-db" target="_blank">Repo</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Data Science -->
+    <section id="datasci">
+      <h2>Data Science</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Song Genre Classifier</h3>
+          <p>Exploration, visualizations, and ML to predict track genre.</p>
+          <div class="meta">Python · pandas · scikit-learn</div>
+          <a class="btn" href="https://github.com/ACCOUNT_B/song-genre-ml" target="_blank">Repo</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Android -->
+    <section id="android">
+      <h2>Android</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Pet Sharing App</h3>
+          <p>Recycler views, SQLite, validation flows; built in Android Studio.</p>
+          <div class="meta">Kotlin/Java · Android</div>
+          <a class="btn" href="https://github.com/ACCOUNT_A/pet-app" target="_blank">Repo</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Web -->
+    <section id="web">
+      <h2>Web</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Gardening Web App (Capstone)</h3>
+          <p>JSON/REST API, token auth, and team code reviews on GitHub.</p>
+          <div class="meta">JavaScript · REST · JSON</div>
+          <a class="btn" href="https://github.com/ACCOUNT_B/garden-app" target="_blank">Repo</a>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <a href="#top">↑ Top</a> · © <span id="year"></span> Your Name
+    </footer>
+  </div>
+
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
