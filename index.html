@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Your Name | Projects</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+<style>
+  .grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  header{margin:2rem 0 1rem}
+  footer{margin:3rem 0 2rem;font-size:.9rem;opacity:.8}
+</style>
+</head>
+<body class="container">
+  <header>
+    <h1>Your Name</h1>
+    <p>Autonomy & embedded systems — UAVs (ROS 2 / PX4), FPGA, perception.</p>
+    <nav>
+      <a href="mailto:you@email.com">Email</a> ·
+      <a href="https://www.linkedin.com/in/yourhandle" target="_blank">LinkedIn</a> ·
+      <a href="https://github.com/YOURUSERNAME" target="_blank">GitHub</a>
+    </nav>
+  </header>
+
+  <h2>Featured Projects</h2>
+  <div class="grid">
+    <!-- Curate your best 6—edit titles, text, and links -->
+    <article>
+      <h3><a href="https://github.com/ACCOUNT_A/pegasus-uav" target="_blank">Pegasus UAV Autonomy</a></h3>
+      <p>ROS 2 ↔ PX4 bridge (XRCE-DDS), path planning & avoidance on Jetson Orin.</p>
+      <small>ROS 2 · PX4 · LiDAR · Stereo</small>
+    </article>
+    <article>
+      <h3><a href="https://github.com/ACCOUNT_B/a-star-fpga" target="_blank">A* Path Planning on FPGA</a></h3>
+      <p>Verilog accelerator on Nexys A7-100T vs Python baseline; deterministic latencies.</p>
+      <small>Verilog · Vivado · Python</small>
+    </article>
+  </div>
+
+  <h2>About</h2>
+  <p>Short bio: what you build, why it matters, and the tech you love.</p>
+
+  <footer>© <span id="y"></span> Your Name</footer>
+<script>document.getElementById("y").textContent=new Date().getFullYear();</script>
+</body>
+</html>
