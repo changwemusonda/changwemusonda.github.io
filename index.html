@@ -24,25 +24,41 @@
   header{padding:28px 0 8px}
   header h1{font-size:36px;line-height:1.1;margin:0 0 6px}
   header p{margin:0 0 12px;color:var(--muted)}
-  /* Center the row, add space between icons */
-  .icons {
-    display: flex;
-    justify-content: center;   /* centers the whole row */
-    align-items: center;
-    gap: 24px;                  /* space between icons (try 32px if you want more) */
-    margin-top: 12px;           /* space above the row */
+    /* Center the whole row */
+  .icons{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:28px;            /* spacing between items */
+    margin-top:12px;
   }
-
-  /* Control the icon size */
-  .icons img {
-    width: 80px;                /* increase size (try 44–48px if you want larger) */
-    height: 80px;
-    display: block;
+  
+  /* Each icon + label as a vertical stack */
+  .icon{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-decoration:none;
+    color:inherit;
   }
-
-  /* Optional: extra click padding + subtle hover */
-  .icons a { padding: 4px; border-radius: 8px; }
-  .icons a:hover { transform: translateY(-1px); }
+  
+  /* Icon size */
+  .icon img{
+    width:60px;          /* adjust size here */
+    height:60px;
+    display:block;
+  }
+  
+  /* Label styling */
+  .icon .label{
+    margin-top:6px;      /* space between icon and text */
+    font-size:13px;      /* label size */
+    color:#555;          /* label color */
+  }
+  
+  /* Optional hover polish */
+  .icon:hover img{ transform:translateY(-1px); }
+  .icon:hover .label{ color:#0f62fe; }
 
   .hero-wrap{display:grid;grid-template-columns:1fr 180px;gap:24px;align-items:center}
   .avatar{width:180px;height:180px;border-radius:16px;object-fit:cover;border:1px solid #eee}
@@ -105,10 +121,22 @@
         <p>Brief intro: what you build and what roles you’re targeting.</p>
         <div class="icons">
           <!-- Replace with your own icons in /assets or inline SVGs -->
-          <a href="https://www.linkedin.com/in/changwe-musonda-32642a1a8/" target="_blank" title="LinkedIn"><img alt="LinkedIn" src="/assets/linkedin.png"></a>
-          <a href="https://github.com/changwemusonda" target="_blank" title="GitHub A"><img alt="GitHub" src="/assets/github.png"></a>
-          <a href="https://github.com/cbmusonda" target="_blank" title="GitHub B"><img alt="GitHub" src="/assets/github.png"></a>
-          <a href="mailto:bradley.musonda@gmail.com" title="Email"><img alt="Email" src="/assets/mail.png"></a>
+          <a class="icon" href="https://www.linkedin.com/in/changwe-musonda-32642a1a8/" target="_blank">
+            <img src="/assets/linkedin.png" alt="LinkedIn">
+            <span class="label">LinkedIn</span>
+          </a>
+          <a class="icon" href="https://github.com/changwemusonda" target="_blank">
+            <img src="/assets/github.png" alt="GitHub">
+            <span class="label">Personal GitHub</span>
+          </a>
+          <a class="icon" href="https://github.com/cbmusonda" target="_blank">
+            <img src="/assets/github.png" alt="GitHub">
+            <span class="label">School GitHub</span>
+          </a>
+          <a class="icon" href="mailto:bradley.musonda@gmail.com">
+            <img src="/assets/mail.png" alt="Email">
+            <span class="label">Email</span>
+          </a>
         </div>
       </div>
       <img class="avatar" src="/assets/your-photo.jpg" alt="Your portrait">
